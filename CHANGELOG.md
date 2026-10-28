@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0.22-omar1] - 2026-10-28
+## [1.0.22-omsanet1] - 2026-10-28
 ### Changed
 - CLOSE sends slat angle 100 instead of 0, so the slats stay closed after the
   blind reaches the bottom instead of turning back to horizontal.
