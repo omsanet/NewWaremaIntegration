@@ -553,7 +553,10 @@ class WaremaBridge:
                 try:
                     # Always send WMS=100 so the motor reaches its physical limit;
                     # we auto-learn the actual stop position for position calibration.
-                    await self.stick.set_position(snr, position=100)
+                    # angle=100 matches the slat angle the motor takes while moving
+                    # down, so the slats stay closed at the bottom instead of turning
+                    # back to horizontal (angle 0) like the default did.
+                    await self.stick.set_position(snr, position=100, angle=100)
                     self._close_tracking.add(snr)
                 except (asyncio.TimeoutError, TimeoutError):
                     log.warning("Timeout sending CLOSE to SNR %d", snr)
